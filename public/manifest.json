@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Velox API Tester",
+  "version": "1.0.0",
+  "description": "A lightweight, offline-first API testing suite.",
+  "action": {
+    "default_title": "Open Velox API"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": {
+  "extension_pages": "script-src 'self'; object-src 'self'; worker-src 'self'"
+}
+}

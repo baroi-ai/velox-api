@@ -1,0 +1,9 @@
+{
+  "appId": "com.velox.api",
+  "appName": "Velox API",
+  "webDir": "out",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

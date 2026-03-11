@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
+@theme {
+  --color-velox-teal: #14b8a6;
+  --color-velox-teal-hover: #0f766e;
+  --color-velox-dark-bg: #0f172a;
+  --color-velox-dark-panel: #1e293b;
+}
+
+html,
+body,
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  height: 100%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Ensure the custom scrollbar works for the Sidebar too */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+    background-attachment: fixed;
+    color: #f1f5f9;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Scrollbar for Headers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #14b8a6;
+}
+
+
+/* src/app/globals.css */
+
+/* Custom utility to hide scrollbars */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+/* src/app/globals.css */
+
+/* Adjusting PrismJS colors to match Velox Teal */
+.token.property {
+  color: #5eead4;
+}
+
+/* Teal-300 */
+.token.string {
+  color: #fbbf24;
+}
+
+/* Amber-400 */
+.token.number {
+  color: #f472b6;
+}
+
+/* Pink-400 */
+.token.boolean {
+  color: #818cf8;
+}
+
+/* Indigo-400 */
+.token.operator {
+  color: #94a3b8;
+}
+
+/* Remove default Prism background to use our slate background */
+pre[class*="language-"],
+code[class*="language-"] {
+  background: transparent !important;
+  text-shadow: none !important;
 }
